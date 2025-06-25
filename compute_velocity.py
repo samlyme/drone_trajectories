@@ -72,9 +72,9 @@ def resample_data(df, sample_time):
     df = df.drop_duplicates(subset='timestamp')
 
     # Interpolate positions
-    interp_tx = interp1d(df['timestamp'], df['tx'], kind='linear', fill_value="extrapolate")
-    interp_ty = interp1d(df['timestamp'], df['ty'], kind='linear', fill_value="extrapolate")
-    interp_tz = interp1d(df['timestamp'], df['tz'], kind='linear', fill_value="extrapolate")
+    interp_tx = interp1d(df['timestamp'], df['tx'], kind='linear', fill_value="extrapolate") # type: ignore
+    interp_ty = interp1d(df['timestamp'], df['ty'], kind='linear', fill_value="extrapolate") # type: ignore
+    interp_tz = interp1d(df['timestamp'], df['tz'], kind='linear', fill_value="extrapolate") # type: ignore
 
     # Get interpolated positions
     new_tx = interp_tx(new_timestamps)

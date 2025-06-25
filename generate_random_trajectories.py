@@ -228,8 +228,8 @@ circle_parameters = [(
 
 # Generate circular trajectories with tilt and noise
 for i, (center, radius, speed, normal) in enumerate(circle_parameters, 1):
-    normal = normal / np.linalg.norm(normal)  # Normalize the normal vector
-    duration = 2 * np.pi * radius / abs(speed)  # Duration to complete one circle
+    normal = normal / np.linalg.norm(normal)  # type: ignore # Normalize the normal vector
+    duration = 2 * np.pi * radius / abs(speed)  # type: ignore # Duration to complete one circle
     traj_data = circular_trajectory(center, radius, 0, speed, normal, duration, args.dt, args.noise)
     save_to_txt(os.path.join(output_path, f'circle_{i}.txt'), traj_data, args.npoints)
 
