@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+
+# Is this even file even needed?
 """
 Script Name: compute_velocity.py
 

@@ -71,6 +71,7 @@ if __name__ == "__main__":
             plot_trajectory(df, file, args.plot_velocity, ax)
 
         plt.tight_layout()
+        plt.savefig("figures/plot_trajectory")
         plt.show()
 
     elif args.file_path:
@@ -79,6 +80,7 @@ if __name__ == "__main__":
         df = read_trajectory(args.file_path)
         title = os.path.basename(args.file_path)
         plot_trajectory(df, title, args.plot_velocity, ax)
+        plt.savefig(f"figures/{args.file_path}.png")
         plt.show()
     else:
         print("Please provide either a file path or a directory.")

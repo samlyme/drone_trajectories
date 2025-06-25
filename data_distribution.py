@@ -78,6 +78,7 @@ def process_files(directory_path, figure_title="Data Distribution of Axes"):
 
     plt.tight_layout()
     plt.subplots_adjust(top=0.90)
+    plt.savefig("figures/data_distribution.png")
     plt.show()
 
 if __name__ == "__main__":

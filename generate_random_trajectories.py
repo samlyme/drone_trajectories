@@ -73,7 +73,7 @@ def generate_normal_vector():
     vector = np.random.normal(0, 1, 3)
     if np.linalg.norm(vector) < 1e-3:
         return np.array([0, 0, 1])  # Default to the upward-pointing vector if too close to zero
-    return vector
+    return vector / np.linalg.norm(vector)
 
 # Function to generate a circular trajectory with noise
 def circular_trajectory(center, radius, height, tangential_speed, normal, duration, dt, noise_level=0.01):
