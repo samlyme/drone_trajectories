@@ -1,3 +1,4 @@
+from typing import Callable
 import pandas as pd
 import argparse
 import numpy as np
@@ -11,7 +12,7 @@ def compute_velocity(df):
     df_velocity = df[['tx', 'ty', 'tz']].diff() / df['timestamp'].diff().values[:, None]
     return df_velocity.dropna()
 
-def divide_into_segments(df, seg_len, compute_velocity=False):
+def divide_into_segments(df, seg_len, compute_velocity: Callable[[pd.DataFrame], pd.DataFrame] | None = None):
     segments = []
     
     if compute_velocity:
